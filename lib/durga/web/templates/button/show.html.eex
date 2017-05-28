@@ -1,0 +1,13 @@
+<h2>Show Button</h2>
+
+<ul>
+
+  <li>
+    <strong>Text:</strong>
+    <%= @button.text %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: button_path(@conn, :edit, @button) %></span>
+<span><%= link "Back", to: button_path(@conn, :index) %></span>
