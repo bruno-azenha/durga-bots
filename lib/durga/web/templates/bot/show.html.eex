@@ -11,8 +11,35 @@
     <strong>Description:</strong>
     <%= @bot.description %>
   </li>
-
 </ul>
+
+<h4>Listing Nodes</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Text</th>
+
+      <th class="text-right"><span><%= link "Add Node", to: node_path(@conn, :new, %{bot_id: @bot.id}), class: "btn btn-default btn-xs" %></span></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for node <- @bot.nodes do %>
+    <tr>
+      <td><%= node.id %></td>
+      <td><%= node.name %></td>
+      <td><%= node.text %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: node_path(@conn, :show, node), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: node_path(@conn, :edit, node), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: node_path(@conn, :delete, node), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
 
 <span><%= link "Edit", to: bot_path(@conn, :edit, @bot) %></span>
 <span><%= link "Back", to: bot_path(@conn, :index) %></span>

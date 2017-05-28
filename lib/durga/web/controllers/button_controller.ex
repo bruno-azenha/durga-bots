@@ -10,7 +10,8 @@ defmodule Durga.Web.ButtonController do
 
   def new(conn, _params) do
     changeset = Bots.change_button(%Durga.Bots.Button{})
-    render(conn, "new.html", changeset: changeset)
+    nodes = Bots.list_nodes();
+    render(conn, "new.html", changeset: changeset, nodes: nodes)
   end
 
   def create(conn, %{"button" => button_params}) do
@@ -32,7 +33,8 @@ defmodule Durga.Web.ButtonController do
   def edit(conn, %{"id" => id}) do
     button = Bots.get_button!(id)
     changeset = Bots.change_button(button)
-    render(conn, "edit.html", button: button, changeset: changeset)
+    nodes = Bots.list_nodes();
+    render(conn, "edit.html", button: button, changeset: changeset, nodes: nodes)
   end
 
   def update(conn, %{"id" => id, "button" => button_params}) do

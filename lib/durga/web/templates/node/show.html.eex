@@ -14,5 +14,31 @@
 
 </ul>
 
+
+<h4>Listing Buttons</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th class="text-right"><span><%= link "Add Button", to: button_path(@conn, :new), class: "btn btn-default btn-xs" %></span></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for button <- @node.buttons do %>
+    <tr>
+      <td><%= button.id %></td>
+      <td><%= button.text %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: button_path(@conn, :show, button), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: button_path(@conn, :edit, button), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: button_path(@conn, :delete, button), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
 <span><%= link "Edit", to: node_path(@conn, :edit, @node) %></span>
 <span><%= link "Back", to: node_path(@conn, :index) %></span>

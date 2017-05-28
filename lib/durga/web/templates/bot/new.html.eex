@@ -1,6 +1,7 @@
 <h2>New Bot</h2>
 
 <%= render "form.html", changeset: @changeset,
-                        action: bot_path(@conn, :create) %>
+                        action: bot_path(@conn, :create),
+                        nodes: @nodes %>
 
 <span><%= link "Back", to: bot_path(@conn, :index) %></span>

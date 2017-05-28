@@ -3,15 +3,17 @@
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Description</th>
 
-      <th></th>
+      <th class="text-right"><span><%= link "New Bot", to: bot_path(@conn, :new), class: "btn btn-default btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>
 <%= for bot <- @bots do %>
     <tr>
+      <td><%= bot.id %></td>
       <td><%= bot.name %></td>
       <td><%= bot.description %></td>
 

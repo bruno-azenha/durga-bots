@@ -9,7 +9,7 @@ defmodule Durga.Bots.Bot do
     field :description, :string
     field :name, :string
 
-    has_one :first_node, Node
+    belongs_to :first_node, Node
     has_many :nodes, Node
     timestamps()
   end
@@ -17,7 +17,7 @@ defmodule Durga.Bots.Bot do
   @doc false
   def changeset(%Bot{} = bot, attrs) do
     bot
-    |> cast(attrs, [:name, :description])
+    |> cast(attrs, [:name, :description, :first_node])
     |> validate_required([:name, :description])
   end
 end

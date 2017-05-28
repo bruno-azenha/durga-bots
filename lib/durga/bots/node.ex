@@ -11,14 +11,14 @@ defmodule Durga.Bots.Node do
     field :text, :string
 
     belongs_to :bot, Bot
-    has_many :buttons, Button
+    has_many :buttons, Button, foreign_key: :parent_node_id
     timestamps()
   end
 
   @doc false
   def changeset(%Node{} = node, attrs) do
     node
-    |> cast(attrs, [:name, :text])
+    |> cast(attrs, [:name, :text, :bot_id])
     |> validate_required([:name, :text])
   end
 end

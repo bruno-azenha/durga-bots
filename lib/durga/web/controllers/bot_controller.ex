@@ -10,7 +10,8 @@ defmodule Durga.Web.BotController do
 
   def new(conn, _params) do
     changeset = Bots.change_bot(%Durga.Bots.Bot{})
-    render(conn, "new.html", changeset: changeset)
+    nodes = Bots.list_nodes();
+    render(conn, "new.html", changeset: changeset, nodes: nodes)
   end
 
   def create(conn, %{"bot" => bot_params}) do
@@ -31,8 +32,9 @@ defmodule Durga.Web.BotController do
 
   def edit(conn, %{"id" => id}) do
     bot = Bots.get_bot!(id)
+    nodes = Bots.list_nodes();
     changeset = Bots.change_bot(bot)
-    render(conn, "edit.html", bot: bot, changeset: changeset)
+    render(conn, "edit.html", bot: bot, changeset: changeset, nodes: nodes)
   end
 
   def update(conn, %{"id" => id, "bot" => bot_params}) do

@@ -3,15 +3,20 @@
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Text</th>
-
-      <th></th>
+      <th>Parente Node ID</th>
+      <th>Target Node ID</th>
+      <th class="text-right"><span><%= link "New Button", to: button_path(@conn, :new), class: "btn btn-default btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>
 <%= for button <- @buttons do %>
     <tr>
+      <td><%= button.id %></td>
       <td><%= button.text %></td>
+      <td><%= button.parent_node_id %></td>
+      <td><%= button.target_node_id %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: button_path(@conn, :show, button), class: "btn btn-default btn-xs" %></span>

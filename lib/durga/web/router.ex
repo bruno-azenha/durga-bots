@@ -16,11 +16,12 @@ defmodule Durga.Web.Router do
   scope "/", Durga.Web do
     pipe_through :browser # Use the default browser stack
 
+    get "/", BotController, :index
     resources "/bots", BotController
     resources "/nodes", NodeController
     resources "/buttons", ButtonController
 
-    get "/", PageController, :index
+    get "/:id/chat", ChatController, :show
   end
 
   # Other scopes may use custom stacks.

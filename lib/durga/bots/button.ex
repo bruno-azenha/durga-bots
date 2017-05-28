@@ -8,14 +8,15 @@ defmodule Durga.Bots.Button do
   schema "bots_buttons" do
     field :text, :string
 
-    has_one :target_node, Node
+    belongs_to :parent_node, Node
+    belongs_to :target_node, Node
     timestamps()
   end
 
   @doc false
   def changeset(%Button{} = button, attrs) do
     button
-    |> cast(attrs, [:text])
+    |> cast(attrs, [:text, :parent_node_id, :target_node_id])
     |> validate_required([:text])
   end
 end

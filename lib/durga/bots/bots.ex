@@ -35,7 +35,11 @@ defmodule Durga.Bots do
       ** (Ecto.NoResultsError)
 
   """
-  def get_bot!(id), do: Repo.get!(Bot, id)
+  def get_bot!(id) do
+    Bot
+    |> Repo.get!(id)
+    |> Repo.preload(:nodes)
+  end
 
   @doc """
   Creates a bot.
@@ -118,6 +122,19 @@ defmodule Durga.Bots do
   end
 
   @doc """
+  Returns the list of nodes that belong to a bot with the specified id.
+
+  ## Examples
+
+      iex> list_nodes(bot_id)
+      [%Node{}, ...]
+
+  """
+  def list_nodes(bot_id) do
+    Repo.all(from(n in Node, where: n.bot_id == ^bot_id))
+  end
+
+  @doc """
   Gets a single node.
 
   Raises `Ecto.NoResultsError` if the Node does not exist.
@@ -131,7 +148,11 @@ defmodule Durga.Bots do
       ** (Ecto.NoResultsError)
 
   """
-  def get_node!(id), do: Repo.get!(Node, id)
+  def get_node!(id) do
+    Node
+    |> Repo.get!(id)
+    |> Repo.preload(:buttons)
+  end
 
   @doc """
   Creates a node.
