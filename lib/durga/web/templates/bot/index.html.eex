@@ -3,16 +3,20 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>ID</th>
       <th>Name</th>
       <th>Description</th>
 
-      <th class="text-right"><span><%= link "New Bot", to: bot_path(@conn, :new), class: "btn btn-primary btn-xs" %></span></th>
+      <th class="text-right">
+        <span><%= link "New Bot", to: bot_path(@conn, :new), class: "btn btn-primary btn-xs" %></span>
+      </th>
     </tr>
   </thead>
   <tbody>
 <%= for bot <- @bots do %>
     <tr>
+      <td><span><%= link "Start", to: chat_path(@conn, :show, bot.id), class: "btn btn-success btn-xs" %></span></td>
       <td><%= bot.id %></td>
       <td><%= bot.name %></td>
       <td><%= bot.description %></td>

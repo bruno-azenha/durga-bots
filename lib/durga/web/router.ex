@@ -7,26 +7,34 @@ defmodule Durga.Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+
+
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", Durga.Web do
+  scope "/admin", Durga.Web do
     pipe_through :browser # Use the default browser stack
 
     get "/", BotController, :index
     resources "/bots", BotController
     resources "/nodes", NodeController
     resources "/buttons", ButtonController
+  end
 
+  scope "/", Durga.Web do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", PageController, :index
     get "/chat/:id", ChatController, :show
   end
 
- scope "/api", Durga.Web do
-   pipe_through :api
 
-   get "/node/:id", ApiController, :get_node
- end
+  scope "/api", Durga.Web do
+    pipe_through :api
+
+    get "/node/:id", ApiController, :get_node
+  end
 end
