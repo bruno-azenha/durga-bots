@@ -17,7 +17,7 @@ defmodule Durga.Bots.Bot do
   @doc false
   def changeset(%Bot{} = bot, attrs) do
     bot
-    |> cast(attrs, [:name, :description, :first_node])
+    |> cast(attrs, [:name, :description, :first_node_id])
     |> validate_required([:name, :description])
   end
 end

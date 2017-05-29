@@ -21,11 +21,12 @@ defmodule Durga.Web.Router do
     resources "/nodes", NodeController
     resources "/buttons", ButtonController
 
-    get "/:id/chat", ChatController, :show
+    get "/chat/:id", ChatController, :show
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Durga.Web do
-  #   pipe_through :api
-  # end
+ scope "/api", Durga.Web do
+   pipe_through :api
+
+   get "/node/:id", ApiController, :get_node
+ end
 end

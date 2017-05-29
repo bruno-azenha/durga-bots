@@ -7,7 +7,7 @@
       <th>Name</th>
       <th>Text</th>
 
-      <th></th>
+      <th class="text-right"><span><%= link "New Node", to: node_path(@conn, :new), class: "btn btn-primary btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>

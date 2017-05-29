@@ -21,7 +21,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th class="text-right"><span><%= link "Add Button", to: button_path(@conn, :new), class: "btn btn-default btn-xs" %></span></th>
+      <th class="text-right"><span><%= link "New Button", to: button_path(@conn, :new), class: "btn btn-primary btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>

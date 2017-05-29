@@ -21,7 +21,7 @@
       <th>Name</th>
       <th>Text</th>
 
-      <th class="text-right"><span><%= link "Add Node", to: node_path(@conn, :new, %{bot_id: @bot.id}), class: "btn btn-default btn-xs" %></span></th>
+      <th class="text-right"><span><%= link "Add Node", to: node_path(@conn, :new, %{bot_id: @bot.id}), class: "btn btn-primary btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>
