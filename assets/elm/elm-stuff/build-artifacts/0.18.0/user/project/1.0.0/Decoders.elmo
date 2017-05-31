@@ -1,0 +1,50 @@
+var _user$project$Decoders$nodeDecoder = A2(
+	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+	A2(
+		_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+		A2(
+			_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+			_elm_lang$core$Json_Decode$succeed(_user$project$Model$Node),
+			A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$int)),
+		A2(_elm_lang$core$Json_Decode$field, 'text', _elm_lang$core$Json_Decode$string)),
+	A2(
+		_elm_lang$core$Json_Decode$field,
+		'buttons',
+		_elm_lang$core$Json_Decode$list(
+			_elm_lang$core$Json_Decode$lazy(
+				function (_p0) {
+					return _user$project$Decoders$buttonDecoder;
+				}))));
+var _user$project$Decoders$buttonDecoder = A2(
+	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+	A2(
+		_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+		A2(
+			_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+			_elm_lang$core$Json_Decode$succeed(_user$project$Model$Button),
+			A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$int)),
+		A2(_elm_lang$core$Json_Decode$field, 'text', _elm_lang$core$Json_Decode$string)),
+	A2(_elm_lang$core$Json_Decode$field, 'target_node', _user$project$Decoders$targetNodeDecoder));
+var _user$project$Decoders$targetNodeDecoder = A2(
+	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+	_elm_lang$core$Json_Decode$succeed(_user$project$Model$TargetNode),
+	A2(_elm_lang$core$Json_Decode$field, 'id', _user$project$Decoders$nodeDecoder));
+var _user$project$Decoders$botDecoder = A2(
+	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+	A2(
+		_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+		A2(
+			_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+			A2(
+				_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+				A2(
+					_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+					_elm_lang$core$Json_Decode$succeed(_user$project$Model$Bot),
+					A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$int)),
+				A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string)),
+			A2(_elm_lang$core$Json_Decode$field, 'description', _elm_lang$core$Json_Decode$string)),
+		A2(
+			_elm_lang$core$Json_Decode$field,
+			'nodes',
+			_elm_lang$core$Json_Decode$list(_user$project$Decoders$nodeDecoder))),
+	A2(_elm_lang$core$Json_Decode$field, 'first_node_', _user$project$Decoders$nodeDecoder));

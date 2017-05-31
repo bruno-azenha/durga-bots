@@ -13,6 +13,14 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
+import Elm from './main';
+
+const elmDiv = document.querySelector('#elm_target');
+
+if (elmDiv) {
+  Elm.Main.embed(elmDiv);
+}
+
 // Import local files
 //
 // Local files can be imported directly using relative

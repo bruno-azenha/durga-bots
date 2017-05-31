@@ -1,0 +1,32 @@
+var _user$project$Model$initialFirstNode = {
+	id: -1,
+	text: 'Simple node text',
+	buttons: {ctor: '[]'}
+};
+var _user$project$Model$initialBot = {
+	id: -1,
+	name: '-',
+	description: '-',
+	first_node: _user$project$Model$initialFirstNode,
+	nodes: {ctor: '[]'}
+};
+var _user$project$Model$initialModel = {bot: _user$project$Model$initialBot, error: _elm_lang$core$Maybe$Nothing};
+var _user$project$Model$Model = F2(
+	function (a, b) {
+		return {bot: a, error: b};
+	});
+var _user$project$Model$Bot = F5(
+	function (a, b, c, d, e) {
+		return {id: a, name: b, description: c, nodes: d, first_node: e};
+	});
+var _user$project$Model$Node = F3(
+	function (a, b, c) {
+		return {id: a, text: b, buttons: c};
+	});
+var _user$project$Model$Button = F3(
+	function (a, b, c) {
+		return {id: a, text: b, target_node: c};
+	});
+var _user$project$Model$TargetNode = function (a) {
+	return {ctor: 'TargetNode', _0: a};
+};

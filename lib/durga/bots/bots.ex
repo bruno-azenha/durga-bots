@@ -36,9 +36,18 @@ defmodule Durga.Bots do
 
   """
   def get_bot!(id) do
-    Bot
-    |> Repo.get!(id)
-    |> Repo.preload(:nodes)
+    bot =
+      Bot
+      |> Repo.get!(id)
+      |> Repo.preload(:nodes)
+      |> Repo.preload(:first_node)
+
+    nodes =
+      bot.nodes
+      |> Enum.map(&(Repo.preload(&1, :buttons)))
+
+    struct(bot, nodes: nodes)
+
   end
 
   @doc """

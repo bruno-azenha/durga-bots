@@ -1,0 +1,13 @@
+var _user$project$Node_View$nodeView = function (model) {
+	var node_name = model.text;
+	var classes = _elm_lang$html$Html_Attributes$classList(
+		{ctor: '[]'});
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(node_name),
+			_1: {ctor: '[]'}
+		});
+};

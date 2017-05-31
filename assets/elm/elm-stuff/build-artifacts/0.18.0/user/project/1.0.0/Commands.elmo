@@ -1,0 +1,5 @@
+var _user$project$Commands$fetch = function () {
+	var apiUrl = '/api/bot/1';
+	var request = A2(_elm_lang$http$Http$get, apiUrl, _user$project$Decoders$botDecoder);
+	return A2(_elm_lang$http$Http$send, _user$project$Messages$FetchResult, request);
+}();

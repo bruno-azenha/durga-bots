@@ -30,26 +30,6 @@ defmodule Durga.Web.BotController do
     render(conn, "show.html", bot: bot)
   end
 
-  def edit(conn, %{"id" => id}) do
-    bot = Bots.get_bot!(id)
-    nodes = Bots.list_nodes();
-    changeset = Bots.change_bot(bot)
-    render(conn, "edit.html", bot: bot, changeset: changeset, nodes: nodes)
-  end
-
-  def update(conn, %{"id" => id, "bot" => bot_params}) do
-    bot = Bots.get_bot!(id)
-
-    case Bots.update_bot(bot, bot_params) do
-      {:ok, bot} ->
-        conn
-        |> put_flash(:info, "Bot updated successfully.")
-        |> redirect(to: bot_path(conn, :show, bot))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", bot: bot, changeset: changeset)
-    end
-  end
-
   def delete(conn, %{"id" => id}) do
     bot = Bots.get_bot!(id)
     {:ok, _bot} = Bots.delete_bot(bot)

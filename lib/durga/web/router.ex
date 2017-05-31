@@ -19,7 +19,8 @@ defmodule Durga.Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", BotController, :index
-    resources "/bots", BotController
+
+    resources "/bots", BotController, only: [:index, :show, :new, :create, :delete]
     resources "/nodes", NodeController
     resources "/buttons", ButtonController
   end
@@ -27,7 +28,7 @@ defmodule Durga.Web.Router do
   scope "/", Durga.Web do
     pipe_through :browser # Use the default browser stack
 
-    get "/", BotController, :index
+    get "/", PageController, :index
     get "/chat/:id", ChatController, :show
   end
 
@@ -36,5 +37,6 @@ defmodule Durga.Web.Router do
     pipe_through :api
 
     get "/node/:id", ApiController, :get_node
+    get "/bot/:id", ApiController, :get_bot
   end
 end

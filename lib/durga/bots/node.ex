@@ -5,6 +5,7 @@ defmodule Durga.Bots.Node do
   alias Durga.Bots.Bot
   alias Durga.Bots.Button
 
+  @derive {Poison.Encoder, except: [:__meta__, :inserted_at, :updated_at, :bot]}
 
   schema "bots_nodes" do
     field :name, :string
