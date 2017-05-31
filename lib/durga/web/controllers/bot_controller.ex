@@ -19,7 +19,7 @@ defmodule Durga.Web.BotController do
       {:ok, bot} ->
         conn
         |> put_flash(:info, "Bot created successfully.")
-        |> redirect(to: bot_path(conn, :show, bot))
+        |> redirect(to: bot_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

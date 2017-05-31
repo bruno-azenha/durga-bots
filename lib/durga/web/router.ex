@@ -27,7 +27,7 @@ defmodule Durga.Web.Router do
   scope "/", Durga.Web do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", BotController, :index
     get "/chat/:id", ChatController, :show
   end
 
