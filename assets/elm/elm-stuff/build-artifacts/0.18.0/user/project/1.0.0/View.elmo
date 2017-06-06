@@ -2,7 +2,7 @@ var _user$project$View$headerView = A2(
 	_elm_lang$html$Html$header,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('main-header'),
+		_0: _elm_lang$html$Html_Attributes$class('jumbotron'),
 		_1: {ctor: '[]'}
 	},
 	{

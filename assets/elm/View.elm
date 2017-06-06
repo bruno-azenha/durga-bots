@@ -20,7 +20,7 @@ view model =
 headerView : Html Msg
 headerView =
     header
-        [ class "main-header" ]
+        [ class "jumbotron" ]
         [ h1
             []
             [ text "Phoenix and Elm: A real use case" ]
