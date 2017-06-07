@@ -38,13 +38,13 @@ bot
 |> Repo.insert_or_update!()
 
 _buttons = [
-  %Button{text: "Button 1", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 1).id},
-  %Button{text: "Button 2", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 2).id},
-  %Button{text: "Button 3", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 3).id},
-  %Button{text: "Button 4", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 4).id},
-  %Button{text: "Button 5", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 5).id},
-  %Button{text: "Button 6", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 6).id},
-  %Button{text: "Button 7", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 7).id},
-  %Button{text: "Button 8", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 8).id},
-  %Button{text: "Button 9", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 9).id},
+  %Button{text: "First Button", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 1).id},
+  %Button{text: "Second Button", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 2).id},
+  %Button{text: "Third Button", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 3).id},
+  %Button{text: "Fourth Button", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 4).id},
+  %Button{text: "Fifth Button", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 5).id},
+  %Button{text: "Sixth Button", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 6).id},
+  %Button{text: "Seventh Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 7).id},
+  %Button{text: "Eighth Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 8).id},
+  %Button{text: "Ninth Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 9).id},
 ] |> Enum.map(&(Repo.insert!(&1)))
