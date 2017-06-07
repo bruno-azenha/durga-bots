@@ -6,7 +6,7 @@
     <h2 class="f4 v-mid mv0 dtc pl2"><%= @bot.name %></h2>
   </div>
 </div>
-<div class="mt3 ph3 fl w-100" id="conversation_place">
+<div class="mt3 ph3 fl w-100 pb4" id="conversation_place">
   <%= render "_node_bubble.html", Map.merge(assigns, %{node: @first_node}) %>
 </div>
 
