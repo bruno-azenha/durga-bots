@@ -8,15 +8,25 @@
     <meta name="author" content="">
 
     <title>Movile</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+
+    <style>
+      body {font-family: 'soleil', Arial, sans-serif;}
+      .accent {color: #4A72FF;}
+      .bg-accent {background-color: #4A72FF;}
+      .b--mid-gray {border-color: #c7c7c7;}
+    </style>
+
+    <script src="https://use.typekit.net/fja4naa.js"></script>
+    <script>try{Typekit.load({ async: false });}catch(e){}</script>
   </head>
 
   <body>
-    <div class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <div class="center mw6">
+      <p class="alert alert-info dn" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger dn" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main role="main">
+      <main role="main" class="tc">
         <%= render @view_module, @view_template, assigns %>
       </main>
 

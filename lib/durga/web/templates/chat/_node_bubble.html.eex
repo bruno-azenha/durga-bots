@@ -1,11 +1,19 @@
-<div class="jumbotron">
-  <div class="text-left"> id: <%= @node.id %> </div>
-  <%= @node.text %>
-
-  <p>
-  <%= for button <- @node.buttons do %>
-    <button class="btn btn-primary btn-lg", role="button" onclick="getNode(<%= button.target_node_id %>)"><%= button.text %></button>
-    <!-- <%= button(button.text, to: "", class: "btn btn-primary btn-lg", role: "button", onclick: "getNode(#{button.target_node_id})")%> -->
-  <%= end %>
-  </p>
+<div class="fl w-100 pa2 mb2">
+  <div class="fl w-20 pa2 nt2">
+    <div class="fl w-100 h-100 br-100 overflow-hidden">
+      <img class="db w-100" src="<%= static_path(@conn, "/images/user.jpg") %>" alt="">
+    </div>
+  </div>
+  <div class="fl w-80 pl2">
+    <p class="fl w-100 black-70 f6 tl lh-copy bg-black-05 mv0 pa3 br3 br--top ba bb-0 b--mid-gray">
+      <%# @node.text %>
+      Olá, Marcelo! Sabemos que acidentes acontecem e problemas de saúde são imprevisíveis. Por isso, preparamos uma oferta exclusiva para você viajar com segurança! Escolha uma das opções abaixo:
+    </p>
+    <div class="fl w-100 br3 br--bottom ba bt-0 b--mid-gray overflow-hidden">
+      <%= for button <- @node.buttons do %>
+      <button class="w-100 bt bb-0 bl-0 br-0 b--mid-gray pv3 bg-white accent pointer", role="button" onclick="getNode(<%= button.target_node_id %>)"><%= button.text %></button>
+      <!-- <%= button(button.text, to: "", class: "btn btn-primary btn-lg", role: "button", onclick: "getNode(#{button.target_node_id})")%> -->
+      <%= end %>
+    </div>
+  </div>
 </div>
