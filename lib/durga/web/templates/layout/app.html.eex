@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Movile</title>
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+  <title>Movile</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
 
-    <style>
-      body {font-family: 'soleil', Arial, sans-serif;}
-      .accent {color: #4A72FF;}
-      .bg-accent {background-color: #4A72FF;}
-      .b--mid-gray {border-color: #c7c7c7;}
-    </style>
+  <style>
+    body {font-family: 'soleil', Arial, sans-serif;}
+    .accent {color: #4A72FF;}
+    .bg-accent {background-color: #4A72FF;}
+    .b--mid-gray {border-color: #c7c7c7;}
+  </style>
 
-    <script src="https://use.typekit.net/fja4naa.js"></script>
-    <script>try{Typekit.load({ async: false });}catch(e){}</script>
-  </head>
+  <script src="https://use.typekit.net/fja4naa.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+</head>
 
-  <body>
-    <div class="center mw6">
-      <p class="alert alert-info dn" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger dn" role="alert"><%= get_flash(@conn, :error) %></p>
+<body>
+  <div class="center mw6">
+    <p class="alert alert-info dn" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-danger dn" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main role="main" class="tc">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+    <main role="main" class="tc">
+      <%= render @view_module, @view_template, assigns %>
+    </main>
 
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+  </div> <!-- /container -->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+</body>
 </html>
