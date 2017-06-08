@@ -10,6 +10,7 @@ defmodule Durga.Bots.Node do
   schema "bots_nodes" do
     field :text, :string
 
+    has_one :is_first_node_of, Bot, foreign_key: :first_node_id, on_delete: :nilify
     belongs_to :bot, Bot
     has_many :buttons, Button, foreign_key: :parent_node_id, on_delete: :delete_all
     timestamps()
