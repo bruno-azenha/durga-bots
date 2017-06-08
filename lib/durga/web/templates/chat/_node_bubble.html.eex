@@ -6,7 +6,7 @@
   </div>
   <div class="fl w-80 pl2">
     <p class="fl w-100 black-70 f6 tl lh-copy bg-black-05 mv0 pa3 br3 br--top ba bb-0 b--mid-gray">
-      <% @node.text %>
+      <%= @node.text %>
       <% #Olá, Marcelo! Sabemos que acidentes acontecem e problemas de saúde são imprevisíveis. Por isso, preparamos uma oferta exclusiva para você viajar com segurança! Escolha uma das opções abaixo: %>
     </p>
     <div class="fl w-100 br3 br--bottom ba bt-0 b--mid-gray overflow-hidden">
