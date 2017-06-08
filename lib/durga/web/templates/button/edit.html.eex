@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 <h2>Edit Button</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: button_path(@conn, :update, @button),
+                        node_id: @button.parent_node_id,
                         nodes: @nodes %>
 
-<span><%= link "Back", to: button_path(@conn, :index) %></span>
+<span><%= link "Back", to: node_path(@conn, :show, @button.parent_node_id) %></span>

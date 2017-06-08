@@ -2,16 +2,12 @@ defmodule Durga.Web.ButtonController do
   use Durga.Web, :controller
 
   alias Durga.Bots
-
-  def index(conn, _params) do
-    buttons = Bots.list_buttons()
-    render(conn, "index.html", buttons: buttons)
-  end
-
-  def new(conn, _params) do
+  
+  def new(conn, %{"node_id" => node_id} = params) do
     changeset = Bots.change_button(%Durga.Bots.Button{})
-    nodes = Bots.list_nodes();
-    render(conn, "new.html", changeset: changeset, nodes: nodes)
+    node = Bots.get_node!(node_id)
+    bot = Bots.get_bot!(node.bot_id);
+    render(conn, "new.html", changeset: changeset, node_id: node_id, nodes: bot.nodes)
   end
 
   def create(conn, %{"button" => button_params}) do
@@ -19,7 +15,7 @@ defmodule Durga.Web.ButtonController do
       {:ok, button} ->
         conn
         |> put_flash(:info, "Button created successfully.")
-        |> redirect(to: button_path(conn, :show, button))
+        |> redirect(to: node_path(conn, :show, button.parent_node_id))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,7 +40,7 @@ defmodule Durga.Web.ButtonController do
       {:ok, button} ->
         conn
         |> put_flash(:info, "Button updated successfully.")
-        |> redirect(to: button_path(conn, :show, button))
+        |> redirect(to: node_path(conn, :show, button.parent_node_id))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", button: button, changeset: changeset)
     end

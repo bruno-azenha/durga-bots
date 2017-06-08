@@ -21,8 +21,10 @@ defmodule Durga.Web.Router do
     resources "/bots", BotController, only: [:index, :show, :new, :create, :delete]
 
     get "/nodes/new/bot/:bot_id", NodeController, :new
-    resources "/nodes", NodeController, only: [:index, :show, :create, :delete, :edit, :update]
-    resources "/buttons", ButtonController
+    resources "/nodes", NodeController, only: [:show, :create, :delete, :edit, :update]
+
+    get "/buttons/new/node/:node_id", ButtonController, :new
+    resources "/buttons", ButtonController, only: [:show, :create, :delete, :edit, :update]
   end
 
   scope "/", Durga.Web do

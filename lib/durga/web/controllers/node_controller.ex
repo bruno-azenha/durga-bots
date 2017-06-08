@@ -3,11 +3,6 @@ defmodule Durga.Web.NodeController do
 
   alias Durga.Bots
 
-  def index(conn, _params) do
-    nodes = Bots.list_nodes()
-    render(conn, "index.html", nodes: nodes)
-  end
-
   def new(conn, %{"bot_id" => bot_id} = params) do
     changeset = Bots.change_node(%Durga.Bots.Node{})
     render(conn, "new.html", changeset: changeset, bot_id: bot_id)

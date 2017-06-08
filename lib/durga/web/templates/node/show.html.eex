@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 <h2>Show Node</h2>
 
 <ul>
@@ -16,7 +17,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th class="text-right"><span><%= link "New Button", to: button_path(@conn, :new), class: "btn btn-primary btn-xs" %></span></th>
+      <th class="text-right"><span><%= link "New Button", to: button_path(@conn, :new, @node.id), class: "btn btn-primary btn-xs" %></span></th>
     </tr>
   </thead>
   <tbody>
