@@ -27,7 +27,7 @@ defmodule Durga.Web.BotController do
 
   def show(conn, %{"id" => id}) do
     bot = Bots.get_bot!(id)
-    render(conn, "chat.html", bot: bot)
+    render(conn, "show.html", bot: bot)
   end
 
   def delete(conn, %{"id" => id}) do

@@ -36,7 +36,5 @@ defmodule Durga.Web.Router do
 
     get "/node/:id", ApiController, :get_node
     get "/bot/:id", ApiController, :get_bot
-
-    post "/velip/callback", VelipController, :callback
   end
 end
