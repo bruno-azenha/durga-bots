@@ -8,7 +8,6 @@ defmodule Durga.Bots.Node do
   @derive {Poison.Encoder, except: [:__meta__, :inserted_at, :updated_at, :bot]}
 
   schema "bots_nodes" do
-    field :name, :string
     field :text, :string
 
     belongs_to :bot, Bot
@@ -19,7 +18,7 @@ defmodule Durga.Bots.Node do
   @doc false
   def changeset(%Node{} = node, attrs) do
     node
-    |> cast(attrs, [:name, :text, :bot_id])
-    |> validate_required([:name, :text])
+    |> cast(attrs, [:text, :bot_id])
+    |> validate_required([:text])
   end
 end

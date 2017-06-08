@@ -2,6 +2,6 @@
 
 <%= render "form.html", changeset: @changeset,
                         action: node_path(@conn, :create),
-                        bots: @bots %>
+                        bot_id: @bot_id %>
 
-<span><%= link "Back", to: node_path(@conn, :index) %></span>
+<span><%= link "Back", to: bot_path(@conn, :show, @bot_id) %></span>

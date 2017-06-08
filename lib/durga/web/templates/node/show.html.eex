@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>Name:</strong>
-    <%= @node.name %>
-  </li>
-
-  <li>
     <strong>Text:</strong>
     <%= @node.text %>
   </li>
@@ -41,4 +36,4 @@
 </table>
 
 <span><%= link "Edit", to: node_path(@conn, :edit, @node) %></span>
-<span><%= link "Back", to: node_path(@conn, :index) %></span>
+<span><%= link "Back", to: bot_path(@conn, :show, @node.bot_id) %></span>

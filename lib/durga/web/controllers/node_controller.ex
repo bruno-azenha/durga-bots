@@ -8,10 +8,9 @@ defmodule Durga.Web.NodeController do
     render(conn, "index.html", nodes: nodes)
   end
 
-  def new(conn, _params) do
+  def new(conn, %{"bot_id" => bot_id} = params) do
     changeset = Bots.change_node(%Durga.Bots.Node{})
-    bots = Bots.list_bots()
-    render(conn, "new.html", changeset: changeset, bots: bots)
+    render(conn, "new.html", changeset: changeset, bot_id: bot_id)
   end
 
   def create(conn, %{"node" => node_params}) do
@@ -19,7 +18,7 @@ defmodule Durga.Web.NodeController do
       {:ok, node} ->
         conn
         |> put_flash(:info, "Node created successfully.")
-        |> redirect(to: node_path(conn, :show, node))
+        |> redirect(to: bot_path(conn, :show, node.bot_id))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,7 +43,7 @@ defmodule Durga.Web.NodeController do
       {:ok, node} ->
         conn
         |> put_flash(:info, "Node updated successfully.")
-        |> redirect(to: node_path(conn, :show, node))
+        |> redirect(to: bot_path(conn, :show, node.bot_id))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", node: node, changeset: changeset)
     end
@@ -56,6 +55,6 @@ defmodule Durga.Web.NodeController do
 
     conn
     |> put_flash(:info, "Node deleted successfully.")
-    |> redirect(to: node_path(conn, :index))
+    |> redirect(to: bot_path(conn, :show, node.bot_id))
   end
 end

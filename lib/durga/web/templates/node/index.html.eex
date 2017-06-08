@@ -4,17 +4,15 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
       <th>Text</th>
 
-      <th class="text-right"><span><%= link "New Node", to: node_path(@conn, :new), class: "btn btn-primary btn-xs" %></span></th>
+      <th class="text-right"></th>
     </tr>
   </thead>
   <tbody>
 <%= for node <- @nodes do %>
     <tr>
       <td><%= node.id %></td>
-      <td><%= node.name %></td>
       <td><%= node.text %></td>
 
       <td class="text-right">
@@ -26,5 +24,3 @@
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Node", to: node_path(@conn, :new) %></span>

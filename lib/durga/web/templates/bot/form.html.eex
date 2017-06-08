@@ -11,18 +11,6 @@
     <%= error_tag f, :name %>
   </div>
 
-  <!-- <div class="form-group">
-    <%= label f, :description, class: "control-label" %>
-    <%= text_input f, :description, class: "form-control" %>
-    <%= error_tag f, :description %>
-  </div> -->
-
-  <!-- <div class="form-group">
-    <%= label f, :first_node_id, class: "control-label" %>
-    <%= select f, :first_node_id, @nodes |> Enum.map(&({&1.name, &1.id})) |> List.insert_at(0, {"-", nil}), class: "form-control" %>
-    <%= error_tag f, :first_node_id %>
-  </div> -->
-
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
