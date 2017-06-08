@@ -34,7 +34,7 @@ nodes = [
 ] |> Enum.map(&(Repo.insert!(&1)))
 
 bot
-|> Ecto.Changeset.change(first_node_id: 1)
+|> Ecto.Changeset.change(first_node_id: Map.get(hd(nodes), :id))
 |> Repo.insert_or_update!()
 
 _buttons = [
