@@ -11,7 +11,7 @@ defmodule Durga.Bots.Bot do
     field :name, :string
 
     belongs_to :first_node, Node
-    has_many :nodes, Node
+    has_many :nodes, Node, on_delete: :delete_all
     timestamps()
   end
 

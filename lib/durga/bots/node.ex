@@ -11,7 +11,7 @@ defmodule Durga.Bots.Node do
     field :text, :string
 
     belongs_to :bot, Bot
-    has_many :buttons, Button, foreign_key: :parent_node_id
+    has_many :buttons, Button, foreign_key: :parent_node_id, on_delete: :delete_all
     timestamps()
   end
 
