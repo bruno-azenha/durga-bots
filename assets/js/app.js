@@ -21,6 +21,23 @@ if (elmDiv) {
   Elm.Main.embed(elmDiv);
 }
 
+// $('.node-bubble button').on('click', function() {
+//   $('.node-bubble button').each(function () {
+//     $(this).removeClass('accent bg-accent white');
+//     $(this).addClass('black-40');
+//   });
+//   $(this).addClass('white bg-accent');
+// });
+
+
+$('#conversation_place').on('click', '.node-bubble button', function() {
+  $(this).siblings('button').removeClass('accent bg-accent white').addClass('black-40');
+  $(this).siblings('button').prop('disabled', true);
+  $(this).prop('disabled', true);
+  $(this).removeClass('accent').addClass('white bg-accent').css('border', '1px solid #4A72FF');
+});
+
+
 // Import local files
 //
 // Local files can be imported directly using relative
