@@ -37,6 +37,7 @@ $('#conversation_place').on('click', '.node-bubble button', function() {
   $(this).removeClass('accent').addClass('white bg-accent').css('border', '1px solid #4A72FF');
 });
 
+
 // Import local files
 //
 // Local files can be imported directly using relative
