@@ -1,7 +1,7 @@
 <div class="bg-black-05">
   <div class="dt center pv3">
     <div class="w2 h2 v-mid br-100 overflow-hidden">
-      <img class="w-100 h-100" src="<%= static_path(@conn, "/images/user.jpg") %>" alt="<%= @bot.name %>">
+      <img class="w-100 h-100" src="<%= static_path(@conn, "/images/bra.png") %>" alt="<%= @bot.name %>">
     </div>
     <h2 class="f4 v-mid mv0 dtc pl2"><%= @bot.name %></h2>
   </div>
