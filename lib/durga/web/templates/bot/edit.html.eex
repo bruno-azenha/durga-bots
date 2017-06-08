@@ -1,8 +1,28 @@
 <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 <h2>Edit Bot</h2>
 
-<%= render "form.html", changeset: @changeset,
-                        action: bot_path(@conn, :update, @bot),
-                        nodes: @nodes %>
+<%= form_for @changeset, bot_path(@conn, :update, @bot), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :first_node_id, class: "control-label" %>
+    <%= select f, :first_node_id, @bot.nodes |> Enum.map(&({&1.text, &1.id})) |> List.insert_at(0, {"-", nil}), class: "form-control" %>
+    <%= error_tag f, :first_node_id %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
 
 <span><%= link "Back", to: bot_path(@conn, :index) %></span>

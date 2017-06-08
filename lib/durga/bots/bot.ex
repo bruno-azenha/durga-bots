@@ -17,6 +17,7 @@ defmodule Durga.Bots.Bot do
 
   @doc false
   def changeset(%Bot{} = bot, attrs) do
+    attrs = if Map.get(attrs, "first_node_id", "") == "", do: Map.delete(attrs, "first_node_id"), else: attrs 
     bot
     |> cast(attrs, [:name, :description, :first_node_id])
     |> validate_required([:name])
