@@ -21,16 +21,16 @@ bot =
   |> Repo.insert!()
 
 nodes = [
-  %Node{name: "Node 0", text: "Node 0 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 1", text: "Node 1 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 2", text: "Node 2 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 3", text: "Node 3 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 4", text: "Node 4 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 5", text: "Node 5 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 6", text: "Node 6 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 7", text: "Node 7 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 8", text: "Node 8 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{name: "Node 9", text: "Node 9 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 0 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 1 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 2 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 3 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 4 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 5 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 6 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 7 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 8 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Node 9 Loren Ipsun Somet...", bot_id: bot.id},
 ] |> Enum.map(&(Repo.insert!(&1)))
 
 bot
