@@ -17,20 +17,16 @@ alias Durga.Bots.{Bot, Node, Button}
 Durga.Repo.start_link()
 
 bot =
-  %Bot{description: "Sample description", name: "Sample Bot Name"}
+  %Bot{description: "Sample description", name: "Bradesco-Seguros"}
   |> Repo.insert!()
 
 nodes = [
-  %Node{text: "Node 0 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 1 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 2 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 3 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 4 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 5 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 6 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 7 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 8 Loren Ipsun Somet...", bot_id: bot.id},
-  %Node{text: "Node 9 Loren Ipsun Somet...", bot_id: bot.id},
+  %Node{text: "Olá, Marcelo! Sabemos que acidentes acontecem e problemas de saúde são imprevisíveis. Por isso, preparamos uma oferta exclusiva para você viajar com segurança! Escolha uma das opções abaixo:", bot_id: bot.id},
+  %Node{text: "Achamos que o plano aventureiro é perfeito para você! Com uma mensalidade de R$500,00, você fica assegurado contra extravio de bagagem e garantimos as menores tarifas em vôos internacionais.", bot_id: bot.id},
+  %Node{text: "Marcelo, o seguro aventureiro foi contratado com sucesso! Agora você pode viajar muito mais tranquilo.", bot_id: bot.id},
+  %Node{text: "Marcelo, o seguro caseiro foi contratado com sucesso! Agora você pode ficar em casa com muito mais segurança.", bot_id: bot.id},
+  %Node{text: "Achamos que o Plano Caseiro é perfeito para você! Com uma mensalidade de R$500,00, você fica assegurado contra custos de manutenção de eletrodomésticos e garantimos as menores tarifas em serviços do lar.", bot_id: bot.id},
+  %Node{text: "Quem sabe da próxima vez?", bot_id: bot.id}
 ] |> Enum.map(&(Repo.insert!(&1)))
 
 bot
@@ -38,13 +34,10 @@ bot
 |> Repo.insert_or_update!()
 
 _buttons = [
-  %Button{text: "First Button", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 1).id},
-  %Button{text: "Second Button", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 2).id},
-  %Button{text: "Third Button", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 3).id},
-  %Button{text: "Fourth Button", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 4).id},
-  %Button{text: "Fifth Button", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 5).id},
-  %Button{text: "Sixth Button", parent_node_id: Enum.at(nodes, 2).id, target_node_id: Enum.at(nodes, 6).id},
-  %Button{text: "Seventh Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 7).id},
-  %Button{text: "Eighth Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 8).id},
-  %Button{text: "Ninth Button", parent_node_id: Enum.at(nodes, 3).id, target_node_id: Enum.at(nodes, 9).id},
+  %Button{text: "Quero viajar", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 1).id},
+  %Button{text: "Não quero viajar", parent_node_id: Enum.at(nodes, 0).id, target_node_id: Enum.at(nodes, 4).id},
+  %Button{text: "Contratar", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 2).id},
+  %Button{text: "Agora não", parent_node_id: Enum.at(nodes, 1).id, target_node_id: Enum.at(nodes, 5).id},
+  %Button{text: "Contratar", parent_node_id: Enum.at(nodes, 4).id, target_node_id: Enum.at(nodes, 3).id},
+  %Button{text: "Agora não", parent_node_id: Enum.at(nodes, 4).id, target_node_id: Enum.at(nodes, 5).id}
 ] |> Enum.map(&(Repo.insert!(&1)))
