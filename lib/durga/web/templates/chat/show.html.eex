@@ -12,23 +12,31 @@
 
 <script>
   function getNode(nodeId) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        var mydiv = document.getElementById("conversation_place")
-        var mydiv = document.getElementById("conversation_place");
-        var newcontent = document.createElement('div');
-        newcontent.innerHTML = this.responseText;
+    if (nodeId == 10) {
+      window.location.href="http://www.easynvest.com.br/precadastro";
+    } else if (nodeId == 11) {
+      window.location.href="https://itunes.apple.com/br/app/easynvest-renda-fixa/id1065904944?mt=8";
+    } else if (nodeId == 12) {
+      window.location.href="https://play.google.com/store/apps/details?id=com.denke.easynvest&hl=pt-br";
+    } else {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var mydiv = document.getElementById("conversation_place")
+          var mydiv = document.getElementById("conversation_place");
+          var newcontent = document.createElement('div');
+          newcontent.innerHTML = this.responseText;
 
-        while (newcontent.firstChild) {
-          mydiv.appendChild(newcontent.firstChild);
+          while (newcontent.firstChild) {
+            mydiv.appendChild(newcontent.firstChild);
+          }
+          $('html, body').animate({
+            scrollTop: $('.node-bubble').last().offset().top
+          }, 1000);
         }
-        $('html, body').animate({
-          scrollTop: $('.node-bubble').last().offset().top
-        }, 1000);
-      }
-    };
-    xhttp.open("GET", "../api/node/" + nodeId, true);
-    xhttp.send();
+      };
+      xhttp.open("GET", "../api/node/" + nodeId, true);
+      xhttp.send();
+    }
   }
 </script>
