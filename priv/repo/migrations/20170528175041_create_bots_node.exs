@@ -3,7 +3,7 @@ defmodule Durga.Repo.Migrations.CreateDurga.Bots.Node do
 
   def change do
     create table(:bots_nodes) do
-      add :text, :string
+      add :text, :string, size: 2040
 
       timestamps()
     end
