@@ -1,7 +1,7 @@
 <div class="fl w-100 pa2 mb2 node-bubble">
   <div class="fl w-20 pa2 nt2">
-    <div class="fl w-100 h-100 br-100 overflow-hidden">
-      <img class="db w-100" src="<%= static_path(@conn, "/images/easy_invest.png") %>" alt="Logo Bradesco">
+    <div class="fl w-100 h-100 overflow-hidden">
+      <img class="db w-100" src="<%= static_path(@conn, "/images/easy_simple.png") %>" alt="Logo Bradesco">
     </div>
   </div>
   <div class="fl w-80 pl2">
